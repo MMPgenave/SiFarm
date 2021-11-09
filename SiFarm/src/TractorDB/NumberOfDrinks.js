@@ -8,9 +8,17 @@ export function NumberOfDrinks() {
     const NumberofDrink = context.info.NumberofDrink;
     
     return (
-        <div className="text-center mt-3">
-            Total Drinks:{NumberofDrink}
-        </div>
-    )
+      <div
+        style={{
+          width: "12rem",
+          position: "absolute",
+          right: "2rem",
+          top: "6rem",
+        }}
+        className="NumberofDrink"
+      >
+        Total Drinks:{NumberofDrink}
+      </div>
+    );
 }
 

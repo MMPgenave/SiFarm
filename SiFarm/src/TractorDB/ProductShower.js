@@ -31,7 +31,7 @@ export function ProductShower() {
                   <h1 className="card-title">{Item.strDrink}</h1>
                   <h3>{Item.strGlass}</h3>
                   <h4>{Item.strAlcoholic}</h4>
-                  <Link className="btn btn-primary" to={`/${Item.idDrink}`}>
+                  <Link className="btn-lg btn-primary " style={{"text-decoration":"none"}} to={`/${Item.idDrink}`}>
                     Details
                   </Link>
                 </div>

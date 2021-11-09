@@ -1,10 +1,26 @@
 import React from "react";
+import { useState } from "react";
+import { useContext } from "react";
+import { mycontext } from "./DataProvidor";
 import { Link } from "react-router-dom";
 
 export function NavbarBootstrap() {
+   const context = useContext(mycontext);
+   const dispatch = context.action;
+   const [value, setValue] = useState("");
+   const searchValue = React.useRef("");
+
+   React.useEffect(() => {
+     searchValue.current.focus();
+   }, []);
+   const changeHandler = (e) => {
+     // console.log(e.target.value);
+     dispatch({ type: "search", value: e.target.value });
+     setValue(e.target.value);
+   };
   return (
     <div>
-      <nav class=" navbar navbar-expand-lg navbar-light  bg-primary  p-3 mb-5 bg-body rounded ">
+      <nav class=" navbar navbar-expand-lg navbar-light  bg-primary  p-3 mb-1 bg-body rounded ">
         <div class="container-fluid ">
           <a
             class="navbar-brand ms-3"
@@ -32,17 +48,30 @@ export function NavbarBootstrap() {
               <Link class="nav-link ms-4 " to="/About">
                 About
               </Link>
+              <Link class="nav-link ms-4 " to="/About">
+                Forum
+              </Link>
+              <Link class="nav-link ms-4 " to="/About">
+                Contact
+              </Link>
             </div>
-            <form class="d-flex  ms-auto">
+            <form
+              class="d-flex  ms-auto"
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+            >
               <input
                 class="form-control me-2"
+                name="name"
                 type="search"
-                placeholder="Search"
+                placeholder="Search your drink "
                 aria-label="Search"
+                ref={searchValue}
+                onChange={changeHandler}
+                value={value}
               />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
+
               <span
                 class="input-group-text bg-transparent border-0"
                 id="search-addon"
