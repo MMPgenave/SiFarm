@@ -3,7 +3,6 @@ import { ProductShower } from "./ProductShower";
 import { useContext } from 'react';
 import { mycontext } from './DataProvidor';
 import { Loading } from './Loading';
-import { NumberOfDrinks } from "./NumberOfDrinks"; 
 export function Home() {
     const context = useContext(mycontext);
     const isLoading = context.info.isLoading;
@@ -16,7 +15,7 @@ export function Home() {
     } */
     return (
       <div>
-        <NumberOfDrinks />
+
         <ProductShower />
       </div>
     );

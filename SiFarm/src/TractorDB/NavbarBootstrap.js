@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { mycontext } from "./DataProvidor";
 import { Link } from "react-router-dom";
+import { NumberOfDrinks } from "./NumberOfDrinks"; 
 
 export function NavbarBootstrap() {
    const context = useContext(mycontext);
@@ -55,12 +56,14 @@ export function NavbarBootstrap() {
                 Contact
               </Link>
             </div>
+
             <form
               class="d-flex  ms-auto"
               onSubmit={(e) => {
                 e.preventDefault();
               }}
             >
+
               <input
                 class="form-control me-2"
                 name="name"
